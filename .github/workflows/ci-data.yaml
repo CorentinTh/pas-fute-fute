@@ -1,0 +1,39 @@
+name: CI - Data
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  ci-data:
+    name: CI - Data
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/data
+
+    steps:
+      - uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
+      - run: corepack enable
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          corepack: true
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm i
+
+      - name: Run linters
+        run: pnpm lint
+
+    #   - name: Type check
+    #     run: pnpm typecheck
+
+    #   - name: Run unit test
+    #     run: pnpm test
+
+      - name: Build the app
+        run: pnpm build

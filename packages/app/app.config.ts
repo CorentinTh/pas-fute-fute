@@ -11,5 +11,4 @@ export default defineConfig({
     preset: 'cloudflare-pages',
   },
 
-  
 });

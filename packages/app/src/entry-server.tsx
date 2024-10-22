@@ -1,4 +1,3 @@
-import { clientOnly } from '@solidjs/start';
 // @refresh reload
 import { createHandler, StartServer } from '@solidjs/start/server';
 import { config } from './libs/config';

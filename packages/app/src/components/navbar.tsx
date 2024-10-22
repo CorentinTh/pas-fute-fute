@@ -1,5 +1,5 @@
 import type { Component } from 'solid-js';
-import { A, useNavigate } from '@solidjs/router';
+import { A } from '@solidjs/router';
 import { useThemeStore } from '~/stores/theme.store';
 import { Button } from './button';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger } from './dropdown-menu';

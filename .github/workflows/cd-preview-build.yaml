@@ -30,4 +30,4 @@ jobs:
         with:
           name: preview-app-build
           if-no-files-found: error
-          path: packages/deploy-cloudflare/dist
+          path: packages/app/dist

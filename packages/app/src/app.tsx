@@ -4,7 +4,6 @@ import { FileRoutes } from '@solidjs/start/router';
 import { Suspense } from 'solid-js';
 
 import { Footer } from './components/footer';
-import { Navbar } from './components/navbar';
 import { Toaster } from './components/sonner';
 import '@unocss/reset/tailwind.css';
 import 'virtual:uno.css';
