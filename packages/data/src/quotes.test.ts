@@ -31,4 +31,16 @@ describe('quotes', () => {
       expect(hasDuplicate).to.eql(false, `Quote "${quote}" is duplicated`);
     });
   });
+
+  test('quotes must be sorted alphabetically', () => {
+    const sortedQuotes = [...quotes].sort((a, b) => a.quote.localeCompare(b.quote));
+
+    expect(quotes).to.eql(sortedQuotes, 'Quotes are not sorted alphabetically');
+  });
+
+  test('quotes must not contain unusual characters', () => {
+    quotes.forEach(({ quote }) => {
+      expect(quote).to.match(/^[a-zàâçéèêëîïôûùüÿñæœ0-9.,:'"\-() /·]*$/i, `Quote "${quote}" contains unusual characters`);
+    });
+  });
 });
