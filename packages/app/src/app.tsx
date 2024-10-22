@@ -6,7 +6,6 @@ import { Suspense } from 'solid-js';
 import { Footer } from './components/footer';
 import { Header } from './components/header';
 import { Toaster } from './components/sonner';
-import { config } from './libs/config';
 import '@unocss/reset/tailwind.css';
 import 'virtual:uno.css';
 import './app.css';
