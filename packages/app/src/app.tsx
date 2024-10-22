@@ -28,7 +28,8 @@ export default function App() {
             >
               <div class="min-h-svh font-sans text-sm font-400 flex flex-col">
                 <Header />
-                <div class="flex-1 p-6 pb-20 ">
+
+                <div class="flex-1 px-6 pb-20 ">
                   {props.children}
                 </div>
 

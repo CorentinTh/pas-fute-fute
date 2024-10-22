@@ -8,16 +8,18 @@ import { Tooltip, TooltipContent, TooltipTrigger } from './tooltip';
 
 export const Header: Component = () => {
   return (
-    <div class="mt-2 sm:mt-8 p-6">
+    <div class="mt-2 sm:mt-8 px-6 pt-6">
       <div class="max-w-800px mx-auto w-full">
         <div class="i-custom-logo size-15 mb-2" />
 
         <div class="flex items-center sm:items-baseline gap-2 justify-between">
-          <h1 class="font-serif font-700 text-3xl sm:text-4xl  ">
-            Pas
-            <span class="text-primary">FuteFute</span>
-            ...
-          </h1>
+          <A href="/">
+            <h1 class="font-serif font-700 text-3xl sm:text-4xl  ">
+              Pas
+              <span class="text-primary">FuteFute</span>
+              ...
+            </h1>
+          </A>
 
           <div class="flex gap-1 items-center">
             <Tooltip>

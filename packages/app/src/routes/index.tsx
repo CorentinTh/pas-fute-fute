@@ -1,4 +1,5 @@
 import { getUniqueRandomQuote } from '@pas-fute-fute/data';
+import { A } from '@solidjs/router';
 import { createSignal, Suspense } from 'solid-js';
 import { Button } from '~/components/button';
 import { Card, CardHeader } from '~/components/card';
@@ -11,7 +12,7 @@ export default function Home() {
   const { copy, getIsJustCopied } = useCopy(getQuote);
 
   return (
-    <main>
+    <main class="mt-8">
 
       <div class="max-w-800px mx-auto ">
         <Card class="text-center text-lg w-full">
@@ -23,29 +24,36 @@ export default function Home() {
         </Card>
 
         <div class="mt-4 flex gap-2 flex-col sm:flex-row justify-between">
-          <Button
-            variant="secondary"
-            onClick={copy}
-          >
-            {getIsJustCopied()
-              ? (
-                  <>
-                    <div class="i-tabler-check mr-2 text-primary" />
-                    Citation copiée!
-                  </>
-                )
-              : (
-                  <>
-                    <div class="i-tabler-copy mr-2" />
-                    Copier la citation
-                  </>
-                )}
+          <Button as={A} href="/list" variant="secondary">
+            <div class="i-tabler-list mr-2" />
+            Toutes les expressions
           </Button>
 
-          <Button onClick={refreshQuote}>
-            <div class="i-tabler-refresh mr-2" />
-            Une autre citation aléatoire
-          </Button>
+          <div class="flex gap-2 flex-col sm:flex-row">
+            <Button
+              variant="secondary"
+              onClick={copy}
+            >
+              {getIsJustCopied()
+                ? (
+                    <>
+                      <div class="i-tabler-check mr-2 text-primary" />
+                      Citation copiée!
+                    </>
+                  )
+                : (
+                    <>
+                      <div class="i-tabler-copy mr-2" />
+                      Copier la citation
+                    </>
+                  )}
+            </Button>
+
+            <Button onClick={refreshQuote}>
+              <div class="i-tabler-refresh mr-2" />
+              Une autre citation aléatoire
+            </Button>
+          </div>
         </div>
 
       </div>
