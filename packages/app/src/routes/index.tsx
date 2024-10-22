@@ -1,4 +1,5 @@
 import { getUniqueRandomQuote } from '@pas-fute-fute/data';
+import { Link, Meta, Title } from '@solidjs/meta';
 import { A } from '@solidjs/router';
 import { createSignal, Suspense } from 'solid-js';
 import { Button } from '~/components/button';
@@ -13,6 +14,9 @@ export default function Home() {
 
   return (
     <main class="mt-8">
+      <Title>PasFuteFute - Les expressions pour les moins futé·e·s.</Title>
+      <Meta name="description" content="Le répertoire des expressions françaises pour décrire les moins futé·e·s." />
+      <Link rel="canonical" href="https://pasfutefute.fr/" />
 
       <div class="max-w-800px mx-auto ">
         <Card class="text-center text-lg w-full">
@@ -24,7 +28,7 @@ export default function Home() {
         </Card>
 
         <div class="mt-4 flex gap-2 flex-col sm:flex-row justify-between">
-          <Button as={A} href="/list" variant="secondary">
+          <Button as={A} href="/liste" variant="secondary">
             <div class="i-tabler-list mr-2" />
             Toutes les expressions
           </Button>
@@ -58,7 +62,7 @@ export default function Home() {
 
       </div>
 
-      <hr class="my-32" />
+      <hr class="my-24" />
 
       <div class="prose mx-auto max-w-800px text-base">
 

@@ -1,4 +1,5 @@
 import { quotes } from '@pas-fute-fute/data';
+import { Link, Meta, Title } from '@solidjs/meta';
 import { A } from '@solidjs/router';
 import { For } from 'solid-js';
 import { Button } from '~/components/button';
@@ -9,6 +10,10 @@ export default function List() {
 
   return (
     <div>
+      <Title>Liste des expressions - PasFuteFute</Title>
+      <Meta name="description" content="Le répertoire des expressions françaises pour décrire les moins futé·e·s." />
+      <Link rel="canonical" href="https://pasfutefute.fr/liste" />
+
       <div class="max-w-800px mt-3 mx-auto">
         <Button as={A} href="/" variant="secondary">
           <div class="i-tabler-arrow-left text-lg mr-2" />
@@ -16,7 +21,7 @@ export default function List() {
         </Button>
       </div>
 
-      <hr class="my-8" />
+      <hr class="my-12" />
 
       <div class="max-w-800px mx-auto">
 
