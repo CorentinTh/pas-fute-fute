@@ -4,6 +4,7 @@ import { FileRoutes } from '@solidjs/start/router';
 import { Suspense } from 'solid-js';
 
 import { Footer } from './components/footer';
+import { Header } from './components/header';
 import { Toaster } from './components/sonner';
 import { config } from './libs/config';
 import '@unocss/reset/tailwind.css';
@@ -27,7 +28,7 @@ export default function App() {
               storageManager={localStorageManager}
             >
               <div class="min-h-svh font-sans text-sm font-400 flex flex-col">
-                {/* <Navbar /> */}
+                <Header />
                 <div class="flex-1 p-6 pb-20 ">
                   {props.children}
                 </div>

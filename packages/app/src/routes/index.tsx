@@ -11,22 +11,9 @@ export default function Home() {
   const { copy, getIsJustCopied } = useCopy(getQuote);
 
   return (
-    <main class="mt-2 sm:mt-8">
+    <main>
 
       <div class="max-w-800px mx-auto ">
-
-        <div class="i-custom-logo size-15 mb-2 " />
-
-        <h1 class="font-serif font-700 text-3xl sm:text-4xl  ">
-          Pas
-          <span class="text-primary">FuteFute</span>
-          ...
-        </h1>
-
-        <p class="text-lg text-muted-foreground mb-8 mt-2">
-          Le répertoire des expressions françaises pour décrire les moins futé·e·s.
-        </p>
-
         <Card class="text-center text-lg w-full">
           <CardHeader>
             <Suspense fallback="&nbsp;">
