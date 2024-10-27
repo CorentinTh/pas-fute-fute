@@ -95,7 +95,7 @@ export default function Home() {
         <p>
           Vous connaissez une expression ou une citation qui n'est pas encore présente sur le site ? Vous pouvez contribuer en soumettant vos propres trouvailles via notre
           {' '}
-          <a href="https://github.com/votre-utilisateur/pas-fute-fute">dépôt GitHub</a>
+          <a href="https://github.com/CorentinTh/pas-fute-fute">dépôt GitHub</a>
           . Chaque contribution aide à enrichir ce répertoire unique des expressions françaises.
         </p>
 
