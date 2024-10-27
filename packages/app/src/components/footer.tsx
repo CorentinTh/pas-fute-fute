@@ -13,7 +13,7 @@ export const Footer: Component = () => {
       <div>
         Code source disponible sur
         {' '}
-        <Button variant="link" as="a" href="https://github.com/CorentinTh/pas-fut-fute" target="_blank" class="p-0 text-muted-foreground underline hover:text-primary transition font-normal h-auto">GitHub</Button>
+        <Button variant="link" as="a" href="https://github.com/CorentinTh/pas-fute-fute" target="_blank" class="p-0 text-muted-foreground underline hover:text-primary transition font-normal h-auto">GitHub</Button>
         .
       </div>
 
