@@ -1,7 +1,7 @@
 import { shuffle } from 'lodash-es';
 import quotes from './quotes.yaml';
 
-export { createUniqueRandomQuoteGenerator, getRandomQuote, getUniqueRandomQuote, quotes };
+export { createUniqueRandomQuoteGenerator, findQuoteBySlug, getRandomQuote, getUniqueRandomQuote, quotes };
 
 function getRandomQuote() {
   return quotes[Math.floor(Math.random() * quotes.length)];
@@ -17,6 +17,10 @@ function createUniqueRandomQuoteGenerator() {
 
     return shuffledQuotes.pop();
   };
+}
+
+function findQuoteBySlug({ slug }: { slug: string }) {
+  return quotes.find(quote => quote.slug === slug);
 }
 
 const getUniqueRandomQuote = createUniqueRandomQuoteGenerator();

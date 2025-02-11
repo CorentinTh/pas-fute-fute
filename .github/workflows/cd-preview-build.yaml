@@ -11,11 +11,13 @@ jobs:
     name: Build app and upload build artifact
     steps:
       - uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4
-      - run: corepack enable
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          corepack: true
           cache: 'pnpm'
 
       - name: Install dependencies

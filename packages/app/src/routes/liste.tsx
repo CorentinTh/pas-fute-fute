@@ -50,12 +50,16 @@ export default function List() {
         <Table>
           <TableBody>
             <For each={quotes}>
-              {({ quote }, index) => (
+              {({ quote, slug }, index) => (
                 <TableRow>
                   <TableCell class="font-medium font-mono text-muted-foreground text-base">
                     { String(index()).padStart(amountOfPadding, '0')}
                   </TableCell>
-                  <TableCell>{quote}</TableCell>
+                  <TableCell>
+                    <A href={`/${slug}`} class="hover:underline">
+                      {quote}
+                    </A>
+                  </TableCell>
                 </TableRow>
               )}
             </For>

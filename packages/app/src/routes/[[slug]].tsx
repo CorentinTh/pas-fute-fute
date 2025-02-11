@@ -1,28 +1,51 @@
-import { getUniqueRandomQuote } from '@pas-fute-fute/data';
+import { createUniqueRandomQuoteGenerator, findQuoteBySlug } from '@pas-fute-fute/data';
 import { Link, Meta, Title } from '@solidjs/meta';
-import { A } from '@solidjs/router';
+import { A, useNavigate, useParams } from '@solidjs/router';
 import { createSignal, Suspense } from 'solid-js';
 import { Button } from '~/components/button';
 import { Card, CardHeader } from '~/components/card';
 import { useCopy } from '~/libs/copy';
 
 export default function Home() {
-  const [getQuote, setQuote] = createSignal(getUniqueRandomQuote().quote);
-  const refreshQuote = () => setQuote(getUniqueRandomQuote().quote);
+  const params = useParams();
+  const navigate = useNavigate();
+  const getUniqueRandomQuote = createUniqueRandomQuoteGenerator();
 
-  const { copy, getIsJustCopied } = useCopy(getQuote);
+  const getInitialQuote = () => {
+    if (params.slug) {
+      return findQuoteBySlug({ slug: params.slug }) ?? getUniqueRandomQuote();
+    }
+
+    return getUniqueRandomQuote();
+  };
+
+  const [getQuote, setQuote] = createSignal(getInitialQuote());
+
+  const refreshQuote = () => {
+    const quote = getUniqueRandomQuote();
+    setQuote(quote);
+    navigate(`/${quote.slug}`, { replace: true });
+  };
+
+  const { copy, getIsJustCopied } = useCopy(() => getQuote().quote);
 
   return (
     <main class="mt-8">
-      <Title>PasFuteFute - Les expressions pour les moins futé·e·s.</Title>
+      <Title>
+        PasFuteFute
+        {' '}
+        -
+        {' '}
+        {getQuote().quote}
+      </Title>
       <Meta name="description" content="Le répertoire des expressions françaises pour décrire les moins futé·e·s." />
-      <Link rel="canonical" href="https://pasfutefute.fr/" />
+      <Link rel="canonical" href={`https://pasfutefute.fr/${getQuote().slug}`} />
 
       <div class="max-w-800px mx-auto ">
         <Card class="text-center text-lg w-full">
           <CardHeader>
             <Suspense fallback="&nbsp;">
-              {getQuote()}
+              {getQuote().quote}
             </Suspense>
           </CardHeader>
         </Card>

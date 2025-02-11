@@ -1,12 +1,12 @@
 import { keys } from 'lodash-es';
-import YAMLPlugin from 'unplugin-yaml/vite';
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
 import { dependencies } from './package.json';
+import { quotesLoaderPlugin } from './plugins/quotes-loader.plugin';
 
 export default defineConfig({
   plugins: [
-    YAMLPlugin(),
+    quotesLoaderPlugin(),
     dts({
       rollupTypes: true,
       include: ['src/index.ts', 'src/quotes.yaml', 'src/types.d.ts'],
